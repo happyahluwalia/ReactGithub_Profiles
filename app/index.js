@@ -1,6 +1,14 @@
 import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
+
+import App from './component/app';
 require('./index.css');
+
+ReactDOM.render(<App />, document.getElementById('app'));
+
+
+/*
 class Avatar extends React.Component {
   render() {
     return (
@@ -37,6 +45,12 @@ class Badge extends React.Component {
   }
 }
 
+Badge.propTypes = {
+    name: propTypes.string.isRequired,
+    img: propTypes.string.isRequired,
+    username: propTypes.string.isRequired
+}
+
 ReactDOM.render(
   <Badge user={{
     name: 'Harpreet',
@@ -44,4 +58,4 @@ ReactDOM.render(
     username: 'happyahluwalia'
   }} />,
   document.getElementById('app')
-);
+);*/
