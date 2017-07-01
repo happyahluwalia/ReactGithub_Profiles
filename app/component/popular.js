@@ -1,6 +1,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+function SelectLanguage(props){
+    var languages = ['All', 'Javascript', 'Java', 'Swift', 'Ruby', 'CSS', 'Python' ];
+    return (     
+        <div>
+            <ul className='languages'>
+                {languages.map(language => {
+                    return (
+                            <li
+                                style = {language === props.selectedLanguage ? {color:'red'} : null} 
+                                onClick={props.onSelect.bind(null, language)} 
+                                key={language}>
+                                {language}
+                            </li>
+                        );
+                })}
+                </ul>
+        </div>
+    )
+}
+SelectLanguage.propTypes = {
+    selectedLanguage : PropTypes.string.isRequired,
+    onSelect : PropTypes.func.isRequired
+}
+
 class Popular extends Component {
     constructor(props){
         super(props);
@@ -19,24 +43,10 @@ class Popular extends Component {
         })
     }
     render() {
-        console.log(this);
-        var languages = ['All', 'Javascript', 'Java', 'Swift', 'Ruby', 'CSS', 'Python' ];
+        
         return (
-            
             <div>
-                <p>selected language {this.state.selectedLanguage}</p> 
-                <ul className='languages'>
-                    {languages.map(language => {
-                        return (
-                             <li
-                                style = {language === this.state.selectedLanguage ? {color:'red'} : null} 
-                                onClick={this.setLanguage.bind(null,language)} 
-                                key={language}>
-                                {language}
-                             </li>
-                            );
-                    })}
-                    </ul>
+                <SelectLanguage selectedLanguage={this.state.selectedLanguage} onSelect={this.setLanguage} />
             </div>
         );
     }
