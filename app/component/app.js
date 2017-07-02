@@ -4,8 +4,13 @@ import ReactRouter from 'react-router-dom';
 import {
   BrowserRouter as Router,
   Route,
-  Link
-} from 'react-router-dom'
+  Link,
+  Switch
+} from 'react-router-dom';
+
+
+import Home from './home';
+import Battle from './battle';
 import Nav from './nav';
 import Popular from './popular';
 
@@ -16,7 +21,12 @@ class App extends Component {
             <Router>
             <div className='container'>
                 <Nav />
-                <Route path='/popular' component={Popular} />
+                <Switch>
+                    <Route exact path='/' component={Home} />
+                    <Route path='/battle' component={Battle} />
+                    <Route path='/popular' component={Popular} />
+                    <Route render={function() {return <p>404 route not found </p>}} />
+                </Switch>
             </div>
             </Router>
         );
