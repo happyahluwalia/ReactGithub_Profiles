@@ -1,0 +1,7 @@
+react-bootstrap
+react-sortable-pane
+react-motion-menu
+reacttransitiongroup
+belle
+greensock
+yahoo/react-intl (https://github.com/yahoo/react-intl/wiki/Components)
