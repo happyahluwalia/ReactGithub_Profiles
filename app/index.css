@@ -71,6 +71,13 @@ a{
     align-items: center;
 }
 
+.reset {
+    margin-left: 50;
+    border: none;
+    background-color: transparent;
+    font-size: 14;
+    font-weight: 400;
+}
 .button {
     color:#e6e6e6;
     background:#0a0a0a;

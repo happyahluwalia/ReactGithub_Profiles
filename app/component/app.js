@@ -13,6 +13,7 @@ import Home from './home';
 import Battle from './battle';
 import Nav from './nav';
 import Popular from './popular';
+import Results from './results';
 
 class App extends Component {
     render() {
@@ -23,7 +24,8 @@ class App extends Component {
                 <Nav />
                 <Switch>
                     <Route exact path='/' component={Home} />
-                    <Route path='/battle' component={Battle} />
+                    <Route exact path='/battle' component={Battle} />
+                    <Route path='/battle/results' component={Results} />
                     <Route path='/popular' component={Popular} />
                     <Route render={function() {return <p>404 route not found </p>}} />
                 </Switch>
