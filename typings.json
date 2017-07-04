@@ -1,6 +1,7 @@
 {
   "globalDependencies": {
     "axios": "registry:dt/axios#0.9.1+20161016142654",
+    "query-string": "registry:dt/query-string#4.3.0+20170315104407",
     "react-router-dom": "registry:dt/react-router-dom#4.0.0+20170323201651"
   }
 }

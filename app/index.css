@@ -120,3 +120,9 @@ a{
     font-size:30px;
     font-weight: 200;
 }
+
+.resultContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

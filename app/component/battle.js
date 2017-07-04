@@ -1,29 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import PlayerInput from './playerinput';
 import { Link } from 'react-router-dom';
+import PlayerInput from './playerinput';
+import PlayerPreview from './playerpreview';
 
-function PlayerPreview(props) {
-    return (
-        <div>
-            <div className="repoInfo">
-                 <img className="repoImage" 
-                        src={props.image} 
-                        alt={"Image of " + props.username}/>
-                <h3 className="repoName">@{props.username}</h3>
-            </ div>
-            <button className="reset"
-                onClick={props.doReset.bind(null, props.id)}>Reset</button>
-        </div>
-    )
-}
 
-PlayerPreview.propTypes = {
-    image: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    username: PropTypes.string.isRequired,
-    doReset : PropTypes.func.isRequired
-}
 
 class Battle extends Component {
     constructor(props){
@@ -73,10 +54,10 @@ class Battle extends Component {
                     
                     {playerOneImage != null &&
                          <PlayerPreview image={playerOneImage} 
-                                id="playerOne"
-                                username = {this.state.playerOneName}
-                                doReset= {this.doReset}
-                                />}
+                                username = {this.state.playerOneName}>
+                            <button className="reset"
+                                onClick={this.doReset.bind(null, "playerOne")}>Reset</button>        
+                        </PlayerPreview> }
 
                     {!this.state.playerTwoName &&
                         <PlayerInput id="playerTwo"
@@ -85,10 +66,10 @@ class Battle extends Component {
 
                      {playerTwoImage != null &&
                          <PlayerPreview image={playerTwoImage} 
-                                id="playerTwo"
-                                username = {this.state.playerTwoName}
-                                doReset= {this.doReset}
-                                />} 
+                                username = {this.state.playerTwoName}>
+                            <button className="reset"
+                                onClick={this.doReset.bind(null, "playerTwo")}>Reset</button>        
+                        </PlayerPreview> }
                 </div>
                 {playerOneImage != null && playerTwoImage != null
                  && <button className="button"><Link to={{
